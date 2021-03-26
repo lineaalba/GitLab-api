@@ -25,24 +25,11 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}))
 
-// app.use(cors({credentials: true, origin: true}))
-// app.options('*', cors())
-app.use(function(req, res, next) {
-  // Website you wish to allow to connect
-res.setHeader('Access-Control-Allow-Origin', 'https://nifty-yalow-9797ba.netlify.app');
-
-// Request methods you wish to allow
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-// Request headers you wish to allow
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-// Set to true if you need the website to include cookies in the requests sent
-// to the API (e.g. in case you use sessions)
-res.setHeader('Access-Control-Allow-Credentials', true);
-next()
-});
 const server = http.createServer(app)
 
 app.use(helmet())
@@ -62,7 +49,12 @@ app.use(session({
 // Routes
 app.use('/', router)
 
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, {
+  cors: {
+    origin: process.env.CLIENT_URL,
+    credentials: true
+  }
+})
 
 io.on('connection', (socket) => {
   console.log('User connected')
