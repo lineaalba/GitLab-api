@@ -21,7 +21,7 @@ passport.use(new GitLabStrategy({
     scope: 'api',
     clientID: process.env.GITLAB_APP_ID,
     clientSecret: process.env.GITLAB_APP_SECRET,
-    callbackURL: 'http://localhost:8080/auth/gitlab/callback'
+    callbackURL: 'https://protected-depths-73018.herokuapp.com/auth/gitlab/callback'
 }, (accessToken, refreshToken, profile, cb) => {
     profile.token = accessToken
    

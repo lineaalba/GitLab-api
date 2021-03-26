@@ -31,7 +31,7 @@ module.exports = async (req, res, next) => {
 
         // If webhook exists, don't add
         for (let i = 0; i < response.length; i++) {
-            if (response[i].url === 'http://9600af685caa.ngrok.io/hook') {
+            if (response[i].url === 'https://protected-depths-73018.herokuapp.com/hook') {
                 webhookExists = true
             }
         }
@@ -43,7 +43,7 @@ module.exports = async (req, res, next) => {
                 issues_events: true,
                 releases_events: true,
                 token: req.user.token,
-                url: 'http://9600af685caa.ngrok.io/hook'
+                url: 'https://protected-depths-73018.herokuapp.com/hook'
             }
     
             let response = await fetch('https://gitlab.com/api/v4/projects/' + req.body.id + '/hooks', {
