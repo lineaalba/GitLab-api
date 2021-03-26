@@ -25,6 +25,7 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
+
 // app.use(cors({credentials: true, origin: true}))
 // app.options('*', cors())
 app.use(function(req, res, next) {
@@ -40,7 +41,8 @@ res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 // Set to true if you need the website to include cookies in the requests sent
 // to the API (e.g. in case you use sessions)
 res.setHeader('Access-Control-Allow-Credentials', true);
-
+next()
+});
 const server = http.createServer(app)
 
 app.use(helmet())
