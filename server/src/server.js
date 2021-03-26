@@ -25,12 +25,13 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
-const server = http.createServer(app)
-
 app.use(cors({
   origin: '*',
   credentials: true
 }))
+
+const server = http.createServer(app)
+
 app.use(helmet())
 // Parse requests of the content type application/json
 app.use(express.json())
