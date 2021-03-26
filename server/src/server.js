@@ -25,10 +25,8 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
-app.use(cors({
-  origin: '*',
-  credentials: true
-}))
+app.use(cors())
+app.options('*', cors())
 
 const server = http.createServer(app)
 
