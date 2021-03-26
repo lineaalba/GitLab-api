@@ -43,7 +43,6 @@ router.get('/auth/gitlab/callback', passport.authenticate('gitlab', {
     failureRedirect: '/'
 }), (req, res) => {
     req.body.isLoggedIn = true
-
     res.redirect(process.env.CLIENT_URL)
 })
 
