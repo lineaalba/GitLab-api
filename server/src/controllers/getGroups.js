@@ -20,7 +20,8 @@ module.exports = async (req, res, next) => {
             credentials: "include",
             headers: {
                 Authorization: 'Bearer ' + req.user.token,
-                "Access-Control-Allow-Credentials": true
+                "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Origin": '*'
             }
         })
 
