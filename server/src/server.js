@@ -28,7 +28,8 @@ const app = express()
 const server = http.createServer(app)
 
 app.use(cors({
-  origin: '*'
+  origin: '*',
+  credentials: true
 }))
 app.use(helmet())
 // Parse requests of the content type application/json
