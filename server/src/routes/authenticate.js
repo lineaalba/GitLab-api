@@ -9,7 +9,7 @@ const express = require('express')
 const router = express.Router()
 const GitLabStrategy = require('passport-gitlab2')
 const passport = require('passport')
-require('dotenv').config()
+// require('dotenv').config()
 
 router.use(passport.initialize())
 router.use(passport.session())
