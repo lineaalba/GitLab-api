@@ -17,8 +17,10 @@ const fetch = require('node-fetch')
 module.exports = async (req, res, next) => {  
     try {
         let response = await fetch('https://gitlab.com/api/v4/groups', {
+            credentials: "include",
             headers: {
-                Authorization: 'Bearer ' + req.user.token
+                Authorization: 'Bearer ' + req.user.token,
+                "Access-Control-Allow-Credentials": true
             }
         })
 
