@@ -27,7 +27,9 @@ const app = express()
 
 const server = http.createServer(app)
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://nifty-yalow-9797ba.netlify.app/'
+}))
 app.use(helmet())
 // Parse requests of the content type application/json
 app.use(express.json())
