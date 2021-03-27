@@ -14,7 +14,6 @@
  */
 module.exports = async (req, res, next) => {
     try {
-        res.send(req)
         if (req.user) {
             if (req.user.token) {
                 next()
