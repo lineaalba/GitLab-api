@@ -52,7 +52,7 @@ app.use(session({
 
 // Routes
 app.use('/', (req, res, next) => {
-  res.setHeader({ 'Access-Control-Allow-Origin': 'https://nifty-yalow-9797ba.netlify.app' })
+  res.headers({ 'Access-Control-Allow-Origin': 'https://nifty-yalow-9797ba.netlify.app', credentials: true })
 }, router)
 
 const io = require('socket.io')(server, {
