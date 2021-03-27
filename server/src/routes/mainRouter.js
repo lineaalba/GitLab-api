@@ -16,6 +16,11 @@ const webhookDataRouter = require('./webhookDataRouter.js')
 const logoutRouter = require('./logoutRouter.js')
 const databaseRouter = require('./databaseRouter.js')
 const slackRouter = require('./slackRouter.js')
+const cors = require('cors')
+
+router.use(cors({origin: process.env.CLIENT_URL,
+    credentials: true
+}))
 
 router.get('/', (req, res, next) => {
     res.send('entry')
