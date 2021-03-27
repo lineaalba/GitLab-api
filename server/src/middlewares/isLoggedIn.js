@@ -18,7 +18,8 @@ module.exports = async (req, res, next) => {
             if (req.user.token) {
                 next()
             } else {
-                res.status(401).json('Access denied')
+                res.send('Access denied')
+                // res.status(401).json('Access denied')
             }
         }
     } catch (error) {
