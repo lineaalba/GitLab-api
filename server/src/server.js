@@ -49,7 +49,7 @@ app.use(session({
     //   sameSite: 'lax'
     // }
   }))
-
+  app.use(express.static(path.join(__dirname, 'https://nifty-yalow-9797ba.netlify.app')));
 // Routes
 app.use('/', router)
 
