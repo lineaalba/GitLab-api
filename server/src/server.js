@@ -25,12 +25,12 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
-app.use(cors({origin: '*'}));
+// app.use(cors({origin: '*'}));
 
-// app.use(cors({
-//   origin: process.env.CLIENT_URL,
-//   credentials: true
-// }))
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}))
 
 const server = http.createServer(app)
 
@@ -65,6 +65,12 @@ io.on('connection', (socket) => {
   })
 })
 app.set('socketio', io)
+
+// app.use(express.static(path.join(__dirname, 'build')));
+
+// app.get('/*', function (req, res) {
+//   res.sendFile(path.join(__dirname,'build', 'index.html'));
+// });
 
 // Error handler
 app.use(function (err, req, res, next) {
