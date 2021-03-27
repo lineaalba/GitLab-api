@@ -22,19 +22,19 @@ const slackRouter = require('./slackRouter.js')
 // })
 
 // Use router to authenticate user
-router.use('/', authenticate)
+// router.use('/', authenticate)
 
 // Use groups router
-router.use('/groups', groupsRouter)
+// router.use('/groups', groupsRouter)
 
 // Use projects router
-router.use('/projects', projectsRouter)
+// router.use('/projects', projectsRouter)
 
 // Use GitLab webhook router
-router.use('/hook/create', webhookRouter)
+// router.use('/hook/create', webhookRouter)
 
 // Use GitLab webhook data
-router.use('/hook', webhookDataRouter)
+// router.use('/hook', webhookDataRouter)
 
 // Use logout router
 router.use('/logout', logoutRouter)
