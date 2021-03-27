@@ -17,7 +17,7 @@ const logoutRouter = require('./logoutRouter.js')
 const databaseRouter = require('./databaseRouter.js')
 const slackRouter = require('./slackRouter.js')
 
-router.get('/', async (req, res, next) => {
+router.get('/', (req, res, next) => {
     res.send('entry')
 })
 
