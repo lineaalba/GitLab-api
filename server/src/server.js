@@ -51,7 +51,7 @@ app.use(session({
   }))
 
 // Routes
-app.use('/', async (req, res, next) => {
+app.use('/', (req, res, next) => {
   res.setHeader({ 'Access-Control-Allow-Origin': '*' })
 }, router)
 
