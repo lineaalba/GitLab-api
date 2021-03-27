@@ -41,8 +41,8 @@ app.use(helmet())
 app.use(express.json())
 app.use(session({
     secret: 'secret',
-    // resave: false,
-    // saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     // cookie: {
     //   httpOnly: true,
     //   maxAge: 1000 * 60 * 60 * 24, // 1 day
