@@ -54,7 +54,7 @@ app.use(session({
 // app.use('/', (req, res, next) => {
 //   res.header({'Access-Control-Allow-Origin': '*', credentials: true})
 // }, router)
-
+app.use(express.static(path.join(__dirname, 'build')));
 app.use('/', router)
 
 const io = require('socket.io')(server, {
