@@ -30,7 +30,7 @@ const app = express()
 
 app.use(cors({
   origin: process.env.CLIENT_URL,
-  // 'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': 'https://nifty-yalow-9797ba.netlify.app',
   credentials: true
 }))
 
@@ -49,7 +49,7 @@ app.use(session({
     //   sameSite: 'lax'
     // }
   }))
-  
+
 // Routes
 app.use('/', router)
 
