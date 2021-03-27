@@ -11,7 +11,7 @@ const isLoggedIn = require('../middlewares/isLoggedIn.js')
 const getGroups = require('../controllers/getGroups.js')
 
 // Get groups if user is logged in
-router.get('/',  getGroups)
+router.get('/', isLoggedIn, getGroups)
 
 // Exports
 module.exports = router
