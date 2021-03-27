@@ -25,6 +25,7 @@ const port = process.env.PORT || 8080
 
 const app = express()
 
+
 // app.use(cors({origin: '*'}));
 
 app.use(cors({
@@ -50,7 +51,9 @@ app.use(session({
   }))
 
 // Routes
-app.use('/', router)
+app.use('/', async (req, res, next) => {
+  res.setHeader({ 'Access-Control-Allow-Origin': '*' })
+}, router)
 
 const io = require('socket.io')(server, {
   cors: {
