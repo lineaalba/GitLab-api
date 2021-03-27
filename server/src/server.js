@@ -54,7 +54,7 @@ app.use(session({
 // app.use('/', router)
 
 app.use('/', (req, res, next) => {
-res.setHeader({'Access-Control-Allow-Origin': '*',
+res.header({'Access-Control-Allow-Origin': '*',
 credentials: true})
 , router})
 
