@@ -22,6 +22,10 @@ module.exports = async (req, res, next) => {
         const event = data.event_type
         const projectId = data.project.id
 
+        if (event === 'issue') {
+            io.emit('issue', data)
+          }
+
         const urlHooks = await Url.find({})
 
         urlHooks.forEach(async (element) => { 
@@ -29,10 +33,6 @@ module.exports = async (req, res, next) => {
                 await sendNotifications(data, element.url)
             }
         })
-    
-        if (event === 'issue') {
-            io.emit('issue', data)
-          }
         
         // await sendNotifications(data)
    
