@@ -17,8 +17,6 @@
 module.exports = async (req, res, next) => {  
     try {
         const url = await req.body.url
-        console.log(url)
-        console.log(req.body)
   
         // const event = data.event_type
     
@@ -39,8 +37,10 @@ module.exports = async (req, res, next) => {
         // })
 
         // await newIssue.save()
-    
-        // res.sendStatus(200)
+        if (url) {
+   res.sendStatus(200)
+        }
+     
     } catch (error) {
         next(error)
     }
