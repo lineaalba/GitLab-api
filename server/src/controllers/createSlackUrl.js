@@ -16,11 +16,8 @@ const Url = require('../models/url.js')
  */
 module.exports = async (req, res, next) => {  
     try {
-        // const url = req.body.url
-        // const id = req.body.id
-
-        const url = req.headers.url
-        const id = req.headers.id
+        const url = req.body.url
+        const id = req.body.id
   
         // Save slack webhook url to database
         const slackUrl = new Url({
@@ -29,7 +26,7 @@ module.exports = async (req, res, next) => {
         })
 
         await slackUrl.save()
-        res.sendStatus(200)
+        // res.sendStatus(200)
     } catch (error) {
         next(error)
     }
