@@ -18,7 +18,7 @@ const Url = require('../models/url.js')
  */
 module.exports = async (req, res, next) => {  
     try {
-        const url = await req.body.url
+        const url = await req.header.url
     
   
         // const event = data.event_type
