@@ -1,5 +1,5 @@
 /**   
-* Controller for slack url.
+* Controller for saving Slack webhook url.
 *
 * @autor Filippa Jakobsson
 * @version 1.0.0
@@ -7,12 +7,8 @@
 
 const Url = require('../models/url.js')
 
-const sendNotifications = require('../lib/sendNotifications.js')
-
-// const sendNotifications = require('../lib/sendNotifications.js')
-// const Slack = require('../models/slack.js')
 /**
- * Posts slack url. 
+ * Saves Slack webhook
  *
  * @param {object} req - Express request object.
  * @param {object} res - Express response object.
@@ -20,9 +16,10 @@ const sendNotifications = require('../lib/sendNotifications.js')
  */
 module.exports = async (req, res, next) => {  
     try {
-        const url = req.headers.url
-        const id = req.headers.id
+        const url = req.body.url
+        const id = req.body.id
   
+        // Save slack webhook url to database
         const slackUrl = new Url({
             url: url,
             id: id

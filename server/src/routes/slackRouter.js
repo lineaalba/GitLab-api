@@ -7,15 +7,10 @@
 
  const express = require('express')
  const router = express.Router()
- const postSlackUrl = require('../controllers/postSlackUrl.js')
- const isLoggedIn = require('../middlewares/isLoggedIn.js')
-//  const cors = require('cors')
+ const createSlackUrl = require('../controllers/createSlackUrl.js')
 
-//  router.use(cors({origin: 'process.env.CLIENT_URL',
-//     credentials: true
-// }))
  // Post slack url
- router.post('/', isLoggedIn, postSlackUrl)
+ router.post('/', createSlackUrl)
 
  // Exports
  module.exports = router
