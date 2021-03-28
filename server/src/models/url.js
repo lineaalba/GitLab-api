@@ -10,6 +10,7 @@
  // Url schema to be saved in database
  const urlSchema = new mongoose.Schema({
     url: {
+        // TODO: validate url
         type: String,
         required: true
     },
