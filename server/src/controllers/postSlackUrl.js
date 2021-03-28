@@ -31,7 +31,7 @@ module.exports = async (req, res, next) => {
 
         // })
         const slackUrl = new Url({
-            url: header
+            url: 'Filippa'
         })
 
         await slackUrl.save()
