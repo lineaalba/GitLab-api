@@ -7,6 +7,8 @@
 
 const Url = require('../models/url.js')
 
+const sendNotifications = require('../lib/sendNotifications.js')
+
 // const sendNotifications = require('../lib/sendNotifications.js')
 // const Slack = require('../models/slack.js')
 /**
@@ -19,6 +21,7 @@ const Url = require('../models/url.js')
 module.exports = async (req, res, next) => {  
     try {
         const url = req.headers.url
+        const id = req.headers.id
   
         // const event = data.event_type
     
@@ -31,10 +34,13 @@ module.exports = async (req, res, next) => {
 
         // })
         const slackUrl = new Url({
-            url: url
+            url: url,
+            id: id
         })
 
         await slackUrl.save()
+
+        await sendNotifications()
 
         
    res.sendStatus(200)

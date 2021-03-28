@@ -24,7 +24,7 @@ module.exports = async (req, res, next) => {
             io.emit('issue', data)
           }
         
-        await sendNotifications(data)
+        // await sendNotifications(data)
    
         const newIssue = new Issue({
             token: req.headers['x-gitlab-token'],
