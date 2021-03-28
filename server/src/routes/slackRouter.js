@@ -10,7 +10,7 @@
  const postSlackUrl = require('../controllers/postSlackUrl.js')
  const cors = require('cors')
 
- router.use(cors({origin: 'https://nifty-yalow-9797ba.netlify.app/dashboard',
+ router.use(cors({origin: 'process.env.CLIENT_URL',
     credentials: true
 }))
  // Post slack url
