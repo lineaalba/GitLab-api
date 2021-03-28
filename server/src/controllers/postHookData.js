@@ -28,11 +28,16 @@ module.exports = async (req, res, next) => {
 
         const urlHooks = await Url.find({})
 
-        urlHooks.forEach(async (element) => { 
-            if (element.id === projectId) {
-                await sendNotifications(data, element.url)
+        for (let i = 0; i < urlHooks.length; i++) {
+            if(urlHooks.id === projectId) {
+                await sendNotifications(data, urlHooks.url)
             }
-        })
+        }
+        // urlHooks.forEach(async (element) => { 
+        //     if (element.id === projectId) {
+        //         await sendNotifications(data, element.url)
+        //     }
+        // })
         
         // await sendNotifications(data)
    
