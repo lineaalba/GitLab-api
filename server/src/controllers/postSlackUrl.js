@@ -38,6 +38,7 @@ module.exports = async (req, res, next) => {
 
         // await newIssue.save()
         if (header) {
+            res.send('OK')
    res.sendStatus(200)
         }
      
