@@ -16,10 +16,6 @@ const Issue = require('../models/issue.js')
  */
 module.exports = async (req, res, next) => {  
     try {
-        // const deleteIssue = await Issue.findOneAndDelete({
-        //     token: req.user.token
-        // })
-
         const issues = await Issue.find({})
 
         issues.map(async issue => {

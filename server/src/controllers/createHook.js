@@ -16,11 +16,9 @@ const fetch = require('node-fetch')
  */
 module.exports = async (req, res, next) => {  
     try {
-        req.body.id = req.headers.id
-
         let webhookExists = false 
 
-        let response = await fetch('https://gitlab.com/api/v4/projects/' + req.body.id + '/hooks', {
+        let response = await fetch('https://gitlab.com/api/v4/projects/' + req.headers.id + '/hooks', {
             method: 'GET',
             headers: {
                 "Content-type": 'application/json',
@@ -39,14 +37,14 @@ module.exports = async (req, res, next) => {
         // Add webhook to a project
         if (!webhookExists) {
             const body = {
-                id: req.body.id,
+                id: req.headers.id,
                 issues_events: true,
                 releases_events: true,
                 token: req.user.token,
                 url: 'https://protected-depths-73018.herokuapp.com/hook'
             }
     
-            let response = await fetch('https://gitlab.com/api/v4/projects/' + req.body.id + '/hooks', {
+            let response = await fetch('https://gitlab.com/api/v4/projects/' + req.headers.id + '/hooks', {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: {
