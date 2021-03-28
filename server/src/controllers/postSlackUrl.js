@@ -17,7 +17,6 @@
 module.exports = async (req, res, next) => {  
     try {
         const header = await req.header.url
-        const url = await req.body.url
   
         // const event = data.event_type
     
@@ -38,7 +37,7 @@ module.exports = async (req, res, next) => {
         // })
 
         // await newIssue.save()
-        if (url || header) {
+        if (header) {
    res.sendStatus(200)
         }
      
