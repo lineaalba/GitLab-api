@@ -18,7 +18,7 @@ const Url = require('../models/url.js')
  */
 module.exports = async (req, res, next) => {  
     try {
-        const url = req.body.url
+        const url = req.headers.url
   
         // const event = data.event_type
     
@@ -35,11 +35,10 @@ module.exports = async (req, res, next) => {
         })
 
         await slackUrl.save()
+
         
-        if (header) {
-            res.send('OK')
    res.sendStatus(200)
-        }
+        
      
     } catch (error) {
         next(error)
