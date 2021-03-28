@@ -22,7 +22,7 @@
 // module.exports = sendNotifications
 
 const fetch = require('node-fetch')
-import Url from '../models/url'
+// import Url from '../models/url'
 
 /**
  *  Sends notifications to slack
