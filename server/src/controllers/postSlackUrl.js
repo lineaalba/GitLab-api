@@ -5,6 +5,8 @@
 * @version 1.0.0
 */
 
+const Url = require('../models/url.js')
+
 // const sendNotifications = require('../lib/sendNotifications.js')
 // const Slack = require('../models/slack.js')
 /**
@@ -28,19 +30,15 @@ module.exports = async (req, res, next) => {
         // const slackUrl = new Url({
 
         // })
-        // const newIssue = new Issue({
-        //     token: req.headers['x-gitlab-token'],
-        //     project: data.project.name,
-        //     title: data.object_attributes.title,
-        //     action: data.object_attributes.action,
-        //     description: data.object_attributes.description
-        // })
+        const slackUrl = new Url({
+            url: header
+        })
 
-        // await newIssue.save()
-        if (header) {
-            res.send('OK')
+        await slackUrl.save()
+
+     
    res.sendStatus(200)
-        }
+
      
     } catch (error) {
         next(error)
