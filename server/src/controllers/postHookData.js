@@ -29,9 +29,9 @@ module.exports = async (req, res, next) => {
         const urlHooks = await Url.find({})
 
         urlHooks.forEach(async (element) => { 
-            if (element.id === projectId) {
+            // if (element.id === projectId) {
                 await sendNotifications(data, element.url)
-            }
+            // }
         })
         
         // await sendNotifications(data)
