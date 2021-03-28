@@ -27,20 +27,19 @@ const Url = require('../models/url')
 /**
  *  Sends notifications to slack
  */
-const sendNotifications = async () => { 
+const sendNotifications = async (response, url) => { 
     try {
-    const urlHooks = await Url.find({})
 
-    urlHooks.forEach(async (element) => {
+    // urlHooks.forEach(async (element) => {
         await fetch(element.url, {
             method: 'POST',
-            // body: JSON.stringify({"text": 'New issue, { ' + response.object_attributes.title + ' }, in project { ' + response.project.name + ' }.'}),
-            body: JSON.stringify({"text": 'testing, id' + element.id}),
+            body: JSON.stringify({"text": 'New issue, { ' + response.object_attributes.title + ' }, in project { ' + response.project.name + ' }.'}),
+            // body: JSON.stringify({"text": 'testing, id' + element.id}),
             headers: {
                 'Content-Type': 'application/json',
             }
         })  
-    })         
+    // })         
 
     } catch (error) {
         console.log(error)

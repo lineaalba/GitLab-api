@@ -7,6 +7,7 @@
 
 const sendNotifications = require('../lib/sendNotifications.js')
 const Issue = require('../models/issue.js')
+const Url = require('../models/url')
 /**
  * Posts webhook data. 
  *
@@ -19,6 +20,15 @@ module.exports = async (req, res, next) => {
         const io = req.app.get('socketio')
         const data = await req.body
         const event = data.event_type
+        const projectId = data.project.id
+
+        const urlHooks = await Url.find({})
+
+        urlHooks.forEach(async (element) => { 
+            if (element.id === projectId) {
+                await sendNotifications(data, element.url)
+            }
+        })
     
         if (event === 'issue') {
             io.emit('issue', data)

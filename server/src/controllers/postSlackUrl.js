@@ -23,29 +23,13 @@ module.exports = async (req, res, next) => {
         const url = req.headers.url
         const id = req.headers.id
   
-        // const event = data.event_type
-    
-        // if (event === 'issue') {
-        //     io.emit('issue', data)
-        //   }
-        
-        // await sendNotifications(data)
-        // const slackUrl = new Url({
-
-        // })
         const slackUrl = new Url({
             url: url,
             id: id
         })
 
         await slackUrl.save()
-
-        await sendNotifications()
-
-        
-   res.sendStatus(200)
-        
-     
+        res.sendStatus(200)
     } catch (error) {
         next(error)
     }
