@@ -35,10 +35,11 @@ module.exports = async (req, res, next) => {
         })
 
         await slackUrl.save()
-
-     
+        
+        if (header) {
+            res.send('OK')
    res.sendStatus(200)
-
+        }
      
     } catch (error) {
         next(error)
