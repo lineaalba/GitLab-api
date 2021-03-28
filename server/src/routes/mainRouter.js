@@ -38,6 +38,9 @@ router.use('/projects', projectsRouter)
 // Use GitLab webhook router
 router.use('/hook/create', webhookRouter)
 
+// Use slack router
+router.use('/slack', slackRouter)
+
 // Use GitLab webhook data
 router.use('/hook', webhookDataRouter)
 
@@ -46,9 +49,6 @@ router.use('/logout', logoutRouter)
 
 // Use database router
 router.use('/database', databaseRouter)
-
-// Use slack router
-router.use('/slack', slackRouter)
 
 // Catch 404
 router.use('*', (req, res, next) => next(createError(404)))
